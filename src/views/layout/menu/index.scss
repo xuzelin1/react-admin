@@ -1,0 +1,17 @@
+.layout-menu {
+  position: relative;
+  height: 100%;
+}
+
+.toggle-collapse {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  border-top: 1px solid rgba(5, 5, 5, 0.06);
+}
