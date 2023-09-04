@@ -85,7 +85,10 @@ const data: DataType[] = [
 
 const App: React.FC = () => {
   return (
-    <Table columns={columns} dataSource={data} />
+    <>
+      Filter
+      <Table columns={columns} dataSource={data} />
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import './index.scss';
 import { MailOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Button } from 'antd';
-import { Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -37,8 +37,8 @@ const items: MenuItem[] = [
     key: 'sub1', 
     icon: <MailOutlined />,
     children: [
-      getItem({ label: 'Option 1', key: '1' }),
-      getItem({ label: 'Option 2', key: '2' }),
+      getItem({ label: 'Table', key: '/table' }),
+      getItem({ label: 'Filter Table', key: '/filter-table' }),
       getItem({ label: 'Option 3', key: '3' }),
       getItem({ label: 'Option 4', key: '4' }),
     ]
@@ -61,7 +61,13 @@ const items: MenuItem[] = [
 const App: React.FC = () => {
   const [theme, setTheme] = useState<MenuTheme>('dark');
   const [current, setCurrent] = useState('1');
+  const navigate = useNavigate();
 
+  // const navigate = useNavigate();
+
+  // const redirectToPath = (key: string) => {
+  //   navigate(key);
+  // };
 
   const [collapsed, setCollapsed] = useState(false);
 
@@ -70,8 +76,9 @@ const App: React.FC = () => {
   };
 
   const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
     setCurrent(e.key);
+    navigate(e.key);
+    // redirectToPath(e.key);
   };
 
   return (
